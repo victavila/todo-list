@@ -1,0 +1,1 @@
+(()=>{"use strict";const t=(t,e,o,a)=>({title:t,description:e,dueDate:o,priority:a}),e=(()=>{let t=[];return{toDoList:t,addToList:e=>{t.push(e)}}})(),o=t("Clean apartment","Some description for the task","date","yes"),a=t("Walk dog","Take the dog for a walk","date","no");e.addToList(o),e.addToList(a),console.table(e.toDoList)})();
