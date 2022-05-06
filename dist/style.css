@@ -45,6 +45,10 @@ li {
   justify-content: space-between;
 }
 
+.project-form-container {
+  display: none;
+}
+
 .btn-wrapper {
   border-top: solid 1px var(--dark-gray);
 }
@@ -61,4 +65,22 @@ li {
 
 span {
   font-size: 1.5rem;
+}
+
+.form-container {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  display: flex;
 }

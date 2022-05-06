@@ -1,5 +1,5 @@
-const todo = (title, description, dueDate, priority) => {
-  return { title, description, dueDate, priority };
+const createToDo = (obj) => {
+  return Object.assign({}, obj);
 };
 
-export default todo;
+export default createToDo;
