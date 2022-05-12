@@ -84,3 +84,33 @@ span {
 .input {
   display: flex;
 }
+
+.uncheck {
+  background: url("./images/checkbox-blank.png") no-repeat;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}
+
+.task-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todos {
+  width: 60%;
+}
+
+.left,
+.right {
+  display: flex;
+}
+
+.project {
+  display: flex;
+  justify-content: space-between;
+}
+
+.close-icon {
+  pointer-events: none;
+}

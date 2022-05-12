@@ -10,6 +10,10 @@
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -28,25 +32,30 @@
           </div>
           <div class="projects">
             <h2 class="project-title">Projects</h2>
-            <div class="projects-container"></div>
+            <div>
+              <ul class="projects-container"></ul>
+            </div>
             <div class="project-form-container">
               <form class="project-form">
                 <label for="project"></label>
                 <input type="text" name="project" id="project" required />
 
                 <div class="project-buttons">
-                  <button class="project-cancel">Cancel</button>
                   <button class="submit-project">Submit</button>
+                  <button class="project-cancel">Cancel</button>
                 </div>
               </form>
             </div>
           </div>
         </div>
         <div class="btn-wrapper">
-          <button class="project-btn"><span>+</span> New List</button>
+          <button class="project-btn">
+            <i class="fa fa-plus"></i> New List
+          </button>
         </div>
       </div>
       <div class="content">
+        <h2 class="title">Inbox</h2>
         <div class="todos"></div>
         <div class="form-container">
           <form class="form">
@@ -71,13 +80,13 @@
             </div>
 
             <div class="buttons">
-              <button class="cancel">Cancel</button>
               <button class="submit">Submit</button>
+              <button class="cancel">Cancel</button>
             </div>
           </form>
         </div>
-        <div class="btn-wrapper">
-          <button class="add"><span>+</span> Add task</button>
+        <div class="button-container">
+          <button class="add"><i class="fa fa-plus"></i> Add task</button>
         </div>
       </div>
     </main>

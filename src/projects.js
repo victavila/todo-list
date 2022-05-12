@@ -1,6 +1,20 @@
 const createProject = (name) => {
   let toDoList = [];
 
+  let active = false;
+
+  const activeOn = () => {
+    active = true;
+  };
+
+  const activeOff = () => {
+    active = false;
+  };
+
+  const getActive = () => {
+    return active;
+  };
+
   const getName = () => {
     return name;
   };
@@ -9,31 +23,43 @@ const createProject = (name) => {
     toDoList.push(task);
   };
 
-  const removeFromList = (task) => {
-    let index = toDoList.indexOf(task);
-    if (index > -1) {
-      toDoList.splice(index, 1);
+  const removeFromList = (id) => {
+    if (id > -1) {
+      toDoList.splice(id, 1);
     }
   };
 
-  return { toDoList, getName, addToList, removeFromList };
+  return {
+    toDoList,
+    activeOn,
+    activeOff,
+    getActive,
+    getName,
+    addToList,
+    removeFromList,
+  };
 };
 
 const projects = (() => {
   let projectsList = [];
 
+  let defaultList = [];
+
+  const addToDefault = (project) => {
+    defaultList.push(project);
+  };
+
   const addToList = (project) => {
     projectsList.push(project);
   };
 
-  const removeFromList = (project) => {
-    let index = projectsList.indexOf(project);
-    if (index > -1) {
-      projectsList.splice(index, 1);
+  const removeFromList = (id) => {
+    if (id > -1) {
+      projectsList.splice(id, 1);
     }
   };
 
-  return { projectsList, addToList, removeFromList };
+  return { projectsList, defaultList, addToDefault, addToList, removeFromList };
 })();
 
 export { createProject, projects };
