@@ -66,7 +66,7 @@ UI.projectForm.addEventListener("submit", () => {
 UI.eventHandler();
 
 document.addEventListener("click", (e) => {
-  if (e.target && e.target.className === "uncheck") {
+  if (e.target.className === "uncheck") {
     projects.projectsList.forEach((project) => {
       if (project.getActive()) {
         console.log(project.getName());
