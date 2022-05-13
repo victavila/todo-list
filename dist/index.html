@@ -57,6 +57,17 @@
       <div class="content">
         <h2 class="title">Inbox</h2>
         <div class="todos"></div>
+        <div class="card-container hidden">
+          <div class="card-title"></div>
+          <div class="card-priority"></div>
+          <div class="card-date"></div>
+          <div class="card-description"></div>
+          <div class="card-button">
+            <button class="close-btn">
+              <i class="fa fa-close"></i>
+            </button>
+          </div>
+        </div>
         <div class="form-container">
           <form class="form">
             <div class="input">
@@ -87,9 +98,9 @@
             <div class="input">
               <label for="priority">Priority:</label>
               <select id="priority" name="prioirty" required>
-                <option value="low">Low</option>
-                <option value="medium">Medium</option>
-                <option value="high">High</option>
+                <option value="Low">low</option>
+                <option value="Medium">medium</option>
+                <option value="High">high</option>
               </select>
             </div>
 

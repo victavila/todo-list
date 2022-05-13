@@ -13,6 +13,12 @@ const UI = (() => {
   const projectForm = document.querySelector(".project-form");
   const projectTitle = projectForm.elements["project"];
 
+  const cardContainer = document.querySelector(".card-container");
+  const cardTitle = document.querySelector(".card-title");
+  const cardDescription = document.querySelector(".card-description");
+  const cardPriority = document.querySelector(".card-priority");
+  const cardDate = document.querySelector(".card-date");
+
   const inbox = document.querySelector(".inbox");
   const today = document.querySelector(".today");
   const thisWeek = document.querySelector(".week");
@@ -74,7 +80,7 @@ const UI = (() => {
 
   const createProjects = (arr) => {
     removeAllChildNodes(projectContainer);
-    let i = 0;
+    let i = 3;
     arr.forEach((project) => {
       const li = document.createElement("li");
       const button = document.createElement("button");
@@ -107,25 +113,50 @@ const UI = (() => {
       const leftContent = document.createElement("div");
       const rightContent = document.createElement("div");
       const check = document.createElement("button");
+      const checkIcon = document.createElement("i");
       const name = document.createElement("p");
+      const detailsBtn = document.createElement("button");
       const date = document.createElement("p");
+      const trashBtn = document.createElement("button");
+      const trashIcon = document.createElement("i");
 
-      check.setAttribute("data-id", i);
+      trashBtn.setAttribute("data-id", i);
+      detailsBtn.setAttribute("data-id", i);
 
       name.textContent = toDo.title;
+      detailsBtn.textContent = "Details";
       date.textContent = toDo.dueDate;
 
       task.classList.add("task-row");
-      check.classList.add("uncheck");
+      check.classList.add("box");
+      detailsBtn.classList.add("details");
       leftContent.classList.add("left");
       rightContent.classList.add("right");
+      trashBtn.classList.add("trash");
 
+      checkIcon.classList.add("fa", "fa-square-o");
+      trashIcon.classList.add("fa", "fa-trash");
+
+      check.appendChild(checkIcon);
+      trashBtn.appendChild(trashIcon);
       leftContent.append(check, name);
-      rightContent.appendChild(date);
+      rightContent.append(detailsBtn, date, trashBtn);
       task.append(leftContent, rightContent);
       taskContainer.appendChild(task);
       i++;
     });
+  };
+
+  const createTaskCard = (obj) => {
+    cardTitle.textContent = obj.title;
+    cardDescription.textContent = `Description: ${obj.description}`;
+    cardPriority.textContent = `Priority: ${obj.priority}`;
+    cardDate.textContent = `Due Date: ${obj.dueDate}`;
+    cardContainer.classList.remove("hidden");
+  };
+
+  const hideCard = () => {
+    cardContainer.classList.add("hidden");
   };
 
   const setTitle = (name) => {
@@ -138,6 +169,8 @@ const UI = (() => {
     createProjects,
     clearToDos,
     createToDos,
+    createTaskCard,
+    hideCard,
     setTitle,
     form,
     projectForm,
