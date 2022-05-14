@@ -8,7 +8,14 @@
   --main-font: "Roboto", sans-serif;
   --blue: #4285f4;
   --light-gray: #f2f2f2;
+  --gray: #cccccc;
   --dark-gray: #666666;
+  --red: #ed9097;
+  --green: #7bcfa9;
+  --dark-green: #338679;
+  --low-color: #0f9d58;
+  --medium-color: #f4b400;
+  --high-color: #db4437;
 }
 
 html {
@@ -33,21 +40,88 @@ button {
 
 .main {
   display: grid;
-  grid-template-columns: 3fr 10fr;
+  grid-template-columns: 2fr 10fr;
   height: 90vh;
 }
 
 .sidebar {
   background-color: var(--light-gray);
   color: var(--dark-gray);
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding-top: 20px;
+}
+
+.inbox,
+.today,
+.week,
+.project {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  margin-left: 15px;
+  padding: 5px 10px;
+  margin-right: 10px;
+}
+
+:where(.inbox, .today, .week, .project):hover {
+  background-color: var(--gray);
+  border-radius: 5px;
+}
+
+.project {
+  display: flex;
+  justify-content: space-between;
+}
+
+.project-title {
+  padding-left: 20px;
+  padding-bottom: 10px;
+}
+
+.delete-btn {
+  border: none;
+  background-color: var(--gray);
+  font-size: 1rem;
+}
+
+.project .delete-btn {
+  display: none;
+}
+
+.project:hover .delete-btn {
+  display: block;
 }
 
 .project-form-container {
   display: none;
+  padding-left: 10px;
+}
+
+#project {
+  border-radius: 5px;
+  border: var(--gray) solid 1px;
+  padding: 3px 2px;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.submit-project,
+.project-cancel {
+  border: none;
+  border-radius: 5px;
+  width: 70px;
+  height: 40px;
+  font-size: 1rem;
+  margin-left: 10px;
+}
+
+.submit-project {
+  background-color: var(--green);
+}
+
+.project-cancel {
+  background-color: var(--red);
 }
 
 .btn-wrapper {
@@ -62,19 +136,11 @@ button {
   font-size: 1rem;
   color: var(--dark-gray);
   cursor: pointer;
-}
-.hidden {
-  visibility: hidden;
+  padding-left: 20px;
 }
 
-.card-container {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  border: 1px solid black;
-  background-color: aqua;
+.hidden {
+  visibility: hidden;
 }
 
 .form-container {
@@ -84,6 +150,19 @@ button {
   top: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  border: var(--dark-gray) solid 1px;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 1.3rem;
+}
+
+label[for="due-date"],
+label[for="priority"] {
+  width: 100px;
+}
+
+label {
+  text-align: left;
 }
 
 .form {
@@ -91,17 +170,68 @@ button {
   flex-direction: column;
 }
 
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+#title,
+#description {
+  border: none;
+  font-size: 1.3rem;
+}
+
+#description {
+  resize: none;
+}
+
 .input {
   display: flex;
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+
+.submit,
+.cancel {
+  border: none;
+  border-radius: 5px;
+  width: 70px;
+  height: 40px;
+  font-size: 1rem;
+  margin-left: 10px;
+}
+
+.submit {
+  background-color: var(--green);
+}
+
+.cancel {
+  background-color: var(--red);
 }
 
 .strike {
   text-decoration: line-through;
+  color: var(--high-color);
 }
 
 .task-row {
   display: flex;
   justify-content: space-between;
+  border-bottom: var(--dark-gray) solid 1px;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  padding-left: 5px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10%;
+}
+
+.title {
+  padding: 20px 0;
 }
 
 .todos {
@@ -111,17 +241,105 @@ button {
 .left,
 .right {
   display: flex;
+  gap: 15px;
 }
 
-.project {
-  display: flex;
-  justify-content: space-between;
+.trash {
+  border: none;
+  background-color: white;
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+}
+
+.trash:hover {
+  font-size: 1.2rem;
+}
+
+.box {
+  border: none;
+  background-color: white;
+  font-size: 1.1rem;
+}
+
+.details {
+  background-color: white;
+  border-radius: 5px;
+  border: var(--dark-green) solid 1px;
+  color: var(--dark-green);
+  width: 50px;
+  height: 25px;
+}
+
+.details:hover {
+  background-color: var(--dark-green);
+  color: white;
+}
+
+.low {
+  border-left: var(--low-color) solid 3px;
+}
+
+.medium {
+  border-left: var(--medium-color) solid 3px;
+}
+
+.high {
+  border-left: var(--high-color) solid 3px;
 }
 
 .trash {
   cursor: pointer;
+  font-size: 1.1rem;
 }
 
 i {
   pointer-events: none;
+}
+
+.button-container {
+  width: 60%;
+}
+
+.add {
+  border: none;
+  background-color: inherit;
+  font-size: 1.1rem;
+}
+
+.card-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  border: 1px solid var(--dark-gray);
+  background-color: var(--light-gray);
+  color: var(--dark-gray);
+  padding: 15px;
+  width: 50%;
+}
+
+.card-title {
+  font-size: 1.6rem;
+  padding: 20px 20px;
+}
+
+.card-priority,
+.card-date,
+.card-description {
+  font-size: 1.2rem;
+  padding: 20px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 7px;
+  border: none;
+  background-color: inherit;
+  font-size: 1.2rem;
+}
+
+.close-btn:hover {
+  font-size: 1.5rem;
 }

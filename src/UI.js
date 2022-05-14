@@ -143,6 +143,15 @@ const UI = (() => {
       rightContent.append(detailsBtn, date, trashBtn);
       task.append(leftContent, rightContent);
       taskContainer.appendChild(task);
+
+      if (toDo.priority === "Low") {
+        task.classList.add("low");
+      } else if (toDo.priority === "Medium") {
+        task.classList.add("medium");
+      } else if (toDo.priority === "High") {
+        task.classList.add("high");
+      }
+
       i++;
     });
   };

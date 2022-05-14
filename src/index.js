@@ -114,14 +114,16 @@ document.addEventListener("click", (e) => {
 
 document.addEventListener("click", (e) => {
   if (e.target.className === "box") {
-    if (e.target.childNodes[0].className === "fa fa-square-o") {
-      e.target.parentNode.childNodes[1].classList.add("strike");
-      e.target.childNodes[0].classList.remove("fa-square-o");
-      e.target.childNodes[0].classList.add("fa-check-square-o");
+    const icon = e.target.childNodes[0];
+    const name = e.target.parentNode.childNodes[1];
+    if (icon.className === "fa fa-square-o") {
+      name.classList.add("strike");
+      icon.classList.remove("fa-square-o");
+      icon.classList.add("fa-check-square-o");
     } else if (e.target.childNodes[0].className === "fa fa-check-square-o") {
-      e.target.parentNode.childNodes[1].classList.remove("strike");
-      e.target.childNodes[0].classList.remove("fa-check-square-o");
-      e.target.childNodes[0].classList.add("fa-square-o");
+      name.classList.remove("strike");
+      icon.classList.remove("fa-check-square-o");
+      icon.classList.add("fa-square-o");
     }
   }
 });

@@ -38,7 +38,13 @@
             <div class="project-form-container">
               <form class="project-form">
                 <label for="project"></label>
-                <input type="text" name="project" id="project" required />
+                <input
+                  type="text"
+                  name="project"
+                  id="project"
+                  autocomplete="off"
+                  required
+                />
 
                 <div class="project-buttons">
                   <button class="submit-project">Submit</button>
@@ -77,6 +83,7 @@
                 name="title"
                 id="title"
                 placeholder="Title: Laundry"
+                autocomplete="off"
                 required
               />
             </div>
@@ -87,16 +94,18 @@
                 id="description"
                 name="description"
                 placeholder="Description: e.g Fold laundry at 4 pm."
+                rows="4"
+                cols="50"
               ></textarea>
             </div>
 
             <div class="input">
-              <label for="due-date">Due date:</label>
+              <label for="due-date">Due date: </label>
               <input type="date" id="due-date" name="due-date" required />
             </div>
 
             <div class="input">
-              <label for="priority">Priority:</label>
+              <label for="priority">Priority: </label>
               <select id="priority" name="prioirty" required>
                 <option value="Low">low</option>
                 <option value="Medium">medium</option>
